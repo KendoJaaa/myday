@@ -3,17 +3,33 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  static propTypes = {
+    user: React.PropTypes.object
+  }
+
+  onClick = () => {
+    console.log('kendo jaa')
+  }
+
+  renderUserInfo = () => {
+    return this.props.user && (
+      <div>
+        <div>SignedInJa</div>
+        <div>{this.props.user.displayName}</div>
+      </div>
+    )
+  }
   render() {
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Welcome to MyDay</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div id="firebaseui-auth-container"></div>
+        {this.renderUserInfo()}
       </div>
+
     );
   }
 }
