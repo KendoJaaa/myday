@@ -5,6 +5,18 @@ import './index.css';
 import firebase from 'firebase'
 import firebaseui from 'firebaseui'
 
+
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyDB-3Hz6XGhYI_m3s7V9jzo-7TCeTA26_8",
+  authDomain: "myday-1e6f2.firebaseapp.com",
+  databaseURL: "https://myday-1e6f2.firebaseio.com",
+  projectId: "myday-1e6f2",
+  storageBucket: "myday-1e6f2.appspot.com",
+  messagingSenderId: "432497065369"
+};
+firebase.initializeApp(config);
+
 // FirebaseUI config.
 var uiConfig = {
   signInSuccessUrl: 'www.google.co.th',
@@ -28,6 +40,6 @@ firebase.auth().onAuthStateChanged(function(response) {
 });
 
 ReactDOM.render(
-  <App user={user}/>,
+  <App user={{displayName: 'kendo'}}/>,
   document.getElementById('root')
 );
