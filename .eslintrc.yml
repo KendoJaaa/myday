@@ -15,7 +15,6 @@ extends:
   - eslint:recommended
   - standard
   - standard-react
-  - ./build-lib/eslint/eslint.config.js
 plugins:
   - taskworld
   - react
