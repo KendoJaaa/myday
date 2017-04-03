@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+
+import React, { Component } from 'react'
+
+import logo from './logo.svg'
 
 class App extends Component {
   static propTypes = {
-    user: React.PropTypes.object
+    users: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    isUserOnlineById: React.PropTypes.func.isRequired,
   }
 
   onClick = () => {
@@ -19,7 +22,8 @@ class App extends Component {
       </div>
     )
   }
-  render() {
+
+  render () {
     return (
       <div className="App">
         <div className="App-header">
@@ -30,8 +34,8 @@ class App extends Component {
         {this.renderUserInfo()}
       </div>
 
-    );
+    )
   }
 }
 
-export default App;
+export default App

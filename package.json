@@ -3,13 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-config-standard": "^7.1.0",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^2.1.1",
-    "eslint-plugin-levitate": "github:thisismanta/eslint-plugin-levitate",
-    "eslint-plugin-pure": "github:purely-functional/eslint-plugin-pure",
-    "eslint-plugin-taskworld": "github:taskworld/eslint-plugin-taskworld",
+
     "react-scripts": "0.9.5"
   },
   "dependencies": {
