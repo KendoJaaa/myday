@@ -35,8 +35,8 @@ firebase.initializeApp(config)
 ui.start('#firebaseui-auth-container', uiConfig)
 
 firebase.auth().onAuthStateChanged((response) => {
-  const user = response
-  console.log('kendojaa', user)
+  const user = response;
+  console.log('kendojaa', user);
 }, (error) => {
   console.log(error)
 })
