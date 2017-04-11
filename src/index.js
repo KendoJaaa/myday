@@ -1,10 +1,10 @@
+import './index.css'
+
+import App from './App'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import firebase from 'firebase'
 import firebaseui from 'firebaseui'
-
-import App from './App'
-import './index.css'
 
 // Initialize Firebase
 const config = {
@@ -15,6 +15,8 @@ const config = {
   storageBucket: 'myday-1e6f2.appspot.com',
   messagingSenderId: '432497065369'
 }
+
+firebase.initializeApp(config)
 
 // FirebaseUI config.
 const uiConfig = {
@@ -28,15 +30,14 @@ const uiConfig = {
 
 const ui = new firebaseui.auth.AuthUI(firebase.auth())
 
-firebase.initializeApp(config)
 
 // Initialize the FirebaseUI Widget using Firebase.
 // The start method will wait until the DOM is loaded.
 ui.start('#firebaseui-auth-container', uiConfig)
 
 firebase.auth().onAuthStateChanged((response) => {
-  const user = response;
-  console.log('kendojaa', user);
+  const user = response
+  console.log('kendojaa', user)
 }, (error) => {
   console.log(error)
 })
