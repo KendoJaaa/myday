@@ -20,7 +20,7 @@ firebase.initializeApp(config)
 
 // FirebaseUI config.
 const uiConfig = {
-  signInSuccessUrl: 'www.google.co.th',
+  signInSuccessUrl: 'home',
   signInOptions: [
     firebase.auth.FacebookAuthProvider.PROVIDER_ID
   ],
@@ -35,14 +35,7 @@ const ui = new firebaseui.auth.AuthUI(firebase.auth())
 // The start method will wait until the DOM is loaded.
 ui.start('#firebaseui-auth-container', uiConfig)
 
-firebase.auth().onAuthStateChanged((response) => {
-  const user = response
-  console.log('kendojaa', user)
-}, (error) => {
-  console.log(error)
-})
-
 ReactDOM.render(
-  <App user={{ displayName: 'kendo' }} />,
+  <App />,
   document.getElementById('root')
 )
