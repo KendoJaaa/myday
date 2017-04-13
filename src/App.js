@@ -1,30 +1,36 @@
 import './App.css'
+import firebase from 'firebase'
 
 import React, { Component } from 'react'
-import logo from './logo.svg'
 import LoginPage from './LoginPage'
-import HomePage from './HomePage'
+import Login from './Login.js'
+import InApp from './InApp.js'
+
 
 class App extends Component {
-  renderContent () {
-    switch (window.location.pathname) {
-    case '/home': {
-      return <HomePage />
+  constructor (props) {
+    super(props)
+    this.state = {
+      user: null,
+      questions: ['kak','digimon']
     }
-    default : {
-      return <LoginPage />
-    }}
+  }
+  componentDidMount () {
+    firebase.auth().onAuthStateChanged((response) => {
+      this.setState({ user: response })
+    }, (error) => {
+      console.log(error)
+    })
   }
 
   render () {
-
+    console.log('kendo ja app', this.state.user)
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to MyDay</h2>
+          <Login user={this.state.user} />
         </div>
-        {this.renderContent()}
+        {this.state.user ? <InApp user={this.state.user}/> : <LoginPage />}
       </div>
 
     )

@@ -5,7 +5,7 @@ class LoginPage extends Component {
   render () {
     return (
       <div className='md-login-page'>
-        <div id='firebaseui-auth-container'></div>
+        nothing here
       </div>
 
     )
